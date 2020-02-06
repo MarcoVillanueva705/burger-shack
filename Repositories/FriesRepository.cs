@@ -6,27 +6,27 @@ using Dapper;
 
 namespace BurgerShack.Repositories
 {
-    public class BurgersRepository
+    public class FriesRepository
     {
         private readonly IDbConnection _db;
-        public BurgersRepository(IDbConnection db)
+        public FriesRepository(IDbConnection db)
         {
             _db = db;
         }
-        internal IEnumerable<Burger> Get()
+        internal IEnumerable<Fries> Get()
         {
-            string sql = "SELECT * FROM burgers";
-            return _db.Query<Burger>(sql);
+            string sql = "SELECT * FROM fries";
+            return _db.Query<Fries>(sql);
         }
-        internal Burger GetById(int Id)
+        internal Fries GetById(int Id)
         {
-            string sql = "SELECT * FROM burgers WHERE id = @Id";
-            return _db.QueryFirstOrDefault<Burger>(sql, new{ Id }) ;
+            string sql = "SELECT * FROM fries WHERE id = @Id";
+            return _db.QueryFirstOrDefault<Fries>(sql, new{ Id }) ;
         }
-        internal Burger Create(Burger newData)
+        internal Fries Create(Fries newData)
         {
             string sql = @"
-            INSERT INTO burgers
+            INSERT INTO fries
             (name, description, price)
             VALUES
             (@Name, @Description, @Price);
@@ -36,10 +36,10 @@ namespace BurgerShack.Repositories
             newData.Id = id;
             return newData;
         }
-        internal void Edit(Burger update)
+        internal void Edit(Fries update)
         {
             string sql = @"
-            UPDATE burgers
+            UPDATE fries
             SET
             name = @Name,
             description = @Description,
@@ -50,7 +50,7 @@ namespace BurgerShack.Repositories
         }
         internal void Delete(int id)
         {
-            string sql = "DELETE FROM burgers WHERE id = @id";
+            string sql = "DELETE FROM fries WHERE id = @id";
             _db.Execute(sql, new {id});
         }
     }
