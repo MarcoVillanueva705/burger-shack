@@ -36,6 +36,8 @@ namespace BurgerShack
             services.AddTransient<BurgersRepository>();
             services.AddTransient<FriesService>();
             services.AddTransient<FriesRepository>();
+            services.AddTransient<BurgerFriesService>();
+            services.AddTransient<BurgerFriesRepository>();
 
         }
 
