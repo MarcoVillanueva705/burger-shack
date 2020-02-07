@@ -71,8 +71,10 @@ USE burgershack20;
 
 -- INSERT INTO burgerfries (burgerId, friesId) VALUES (1, 1);
 -- INSERT INTO burgerfries (burgerId, friesId) VALUES (1, 2);
+-- INSERT INTO burgerfries (burgerId, friesId) VALUES (3, 3);
+
 
 -- JOIN TABLE QUERY (Fries Id => burgers)
-SELECT * FROM burgerfries bfs
-JOIN burgers b ON b.id = bfs.burgerId
-WHERE friesId = 1;
+SELECT * FROM burgerfries;
+-- JOIN burgers b ON b.id = bfs.burgerId
+-- WHERE friesId = 1;
